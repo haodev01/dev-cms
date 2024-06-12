@@ -50,7 +50,7 @@
           <div class="card-body">
             <!-- Logo -->
             <div class="app-brand justify-content-center">
-              <a href="index.html" class="app-brand-link gap-2">
+              <a href="{{route('admin.dashboard')}}" class="app-brand-link gap-2">
                 <span class="app-brand-logo demo">
                   <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <defs>
@@ -123,7 +123,7 @@
 
             <p class="text-center">
               <span>Already have an account?</span>
-              <a href="auth-login-basic.html">
+              <a href="{{route('admin.login')}}">
                 <span>Sign in instead</span>
               </a>
             </p>
@@ -137,7 +137,6 @@
   <!-- / Content -->
 
   <div class="buy-now">
-    <a href="https://themeselection.com/item/sneat-bootstrap-html-admin-template/" target="_blank" class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
   </div>
 
 
