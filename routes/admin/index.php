@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group([], function () {
-  require_once('auth.php');
-});
-Route::group([], function () {
+Route::group(['middleware' => 'guest'], function () {
   require_once('guest.php');
+});
+Route::group(['middleware' => 'auth'], function () {
+  require_once('auth.php');
 });

@@ -48,7 +48,7 @@
   <ul class="menu-inner py-1">
     <!-- Dashboards -->
     <li class="menu-item active open">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
+      <a href="javascript:void(0);" class="menu-link ">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Dashboards">Dashboards</div>
       </a>
@@ -56,25 +56,20 @@
     </li>
 
     <!-- Pages -->
-    <li class="menu-item">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
+    <li class="menu-item  ">
+      <a href="javascript:void(0);" class="menu-link menu-toggle ">
         <i class="menu-icon tf-icons bx bx-dock-top"></i>
-        <div data-i18n="Account Settings">Account Settings</div>
+        <div data-i18n="Account Settings">Tài khoản</div>
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
           <a href="pages-account-settings-account.html" class="menu-link">
-            <div data-i18n="Account">Account</div>
+            <div data-i18n="Account">Người dùng</div>
           </a>
         </li>
         <li class="menu-item">
           <a href="pages-account-settings-notifications.html" class="menu-link">
-            <div data-i18n="Notifications">Notifications</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="pages-account-settings-connections.html" class="menu-link">
-            <div data-i18n="Connections">Connections</div>
+            <div data-i18n="Notifications">Quản lý quyền</div>
           </a>
         </li>
       </ul>
