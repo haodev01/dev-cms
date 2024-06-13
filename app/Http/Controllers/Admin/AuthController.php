@@ -30,7 +30,7 @@ class AuthController extends Controller
     }
     public function create(array $data)
     {
-        return User::create([
+        return Admin::create([
             'username' => $data['username'],
             'name' => 'haonc',
             'email' => $data['email'],

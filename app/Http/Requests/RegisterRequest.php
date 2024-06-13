@@ -33,6 +33,8 @@ class RegisterRequest extends FormRequest
             'username.required' => 'Tên đăng nhập không được để trống',
             'password.required' => 'Mật khẩu không được để trống',
             'email.required' => 'Email không được để trống',
+            'email.unique' => 'Email đã tồn tại trong hệ thống',
+            'password.min' => 'Mật khẩu chứa tối thiểu 6 ký tự',
         ];
     }
 }

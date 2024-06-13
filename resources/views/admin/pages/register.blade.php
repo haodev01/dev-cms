@@ -89,8 +89,8 @@
               </a>
             </div>
             <!-- /Logo -->
-            <h4 class="mb-2">Adventure starts here 🚀</h4>
-            <p class="mb-4">Make your app management easy and fun!</p>
+            <h4 class="mb-2">Cuộc phiêu lưu bắt đầu từ đây 🚀</h4>
+            <p class="mb-4">Làm cho việc quản lý ứng dụng của bạn trở nên dễ dàng và thú vị!</p>
 
             <form id="formAuthentication" class="mb-3" action="{{route('admin.doReigster')}}" method="POST">
               @csrf
@@ -118,23 +118,13 @@
                 <span class="text-danger">{{$message}}</span>
                 @enderror
               </div>
-
-              <div class="mb-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-                  <label class="form-check-label" for="terms-conditions">
-                    I agree to
-                    <a href="javascript:void(0);">privacy policy & terms</a>
-                  </label>
-                </div>
-              </div>
               <button type="submit" class="btn btn-primary d-grid w-100">Sign up</button>
             </form>
 
             <p class="text-center">
-              <span>Already have an account?</span>
+              <span>Bạn đã có tài khoản?</span>
               <a href="{{route('admin.login')}}">
-                <span>Sign in instead</span>
+                <span>Đăng nhập ngay</span>
               </a>
             </p>
           </div>
