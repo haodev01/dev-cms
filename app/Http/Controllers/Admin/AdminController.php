@@ -3,17 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
-class CategoryController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $this->authorize('view', CategoryController::class);
-        return view('admin.pages.categories.index');
+        $this->authorize('view', Admin::class);
+        $users = Admin::paginate(10);
+        return view('admin.pages.users.index', compact('users'));
     }
 
     /**
@@ -21,7 +24,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', CategoryController::class);
+        $this->authorize('create', Admin::class);
+        $roles = Role::all();
+        return view('admin.pages.users.create', compact('roles'));
     }
 
     /**
@@ -29,7 +34,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create', CategoryController::class);
+        $this->authorize('create', Admin::class);
     }
 
     /**
@@ -37,7 +42,7 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        $this->authorize('update', CategoryController::class);
+        //
     }
 
     /**
@@ -45,7 +50,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $this->authorize('update', CategoryController::class);
+        $this->authorize('update', Admin::class);
+        //
     }
 
     /**
@@ -53,7 +59,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $this->authorize('update', CategoryController::class);
+        $this->authorize('update', Admin::class);
     }
 
     /**
@@ -61,6 +67,9 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->authorize('delete', CategoryController::class);
+        $this->authorize('delete', Admin::class);
+        $user = Admin::findOrFail($id);
+        $user->delete();
+        return redirect()->route('users.index')->with('success', 'Xóa người dùng thành công');
     }
 }

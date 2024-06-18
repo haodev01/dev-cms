@@ -63,13 +63,18 @@
       </a>
       <ul class="menu-sub">
         <li class="menu-item">
-          <a href="pages-account-settings-account.html" class="menu-link">
+          <a href="{{route('users.index')}}" class="menu-link">
             <div data-i18n="Account">Người dùng</div>
           </a>
         </li>
         <li class="menu-item">
-          <a href="pages-account-settings-notifications.html" class="menu-link">
+          <a href="{{route('permissions.index')}}" class="menu-link">
             <div data-i18n="Notifications">Quản lý quyền</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="{{route('roles.index')}}" class="menu-link">
+            <div data-i18n="Notifications">Quản lý vai trò</div>
           </a>
         </li>
       </ul>

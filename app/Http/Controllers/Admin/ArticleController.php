@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -12,6 +13,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
+        $this->authorize('view', Article::class);
         return view('admin.pages.articles.index');
     }
 
@@ -20,7 +22,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('create', Article::class);
     }
 
     /**
@@ -28,7 +30,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('create', Article::class);
     }
 
     /**
@@ -36,7 +38,7 @@ class ArticleController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $this->authorize('update', Article::class);
     }
 
     /**
@@ -44,7 +46,7 @@ class ArticleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $this->authorize('update', Article::class);
     }
 
     /**

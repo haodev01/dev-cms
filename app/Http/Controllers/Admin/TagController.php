@@ -16,6 +16,7 @@ class TagController extends Controller
      */
     public function index()
     {
+        $this->authorize('view', Tag::class);
         $tags = Tag::paginate(10);
         return view('admin.pages.tags.index', compact('tags'));
     }
@@ -25,6 +26,7 @@ class TagController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Tag::class);
         return view('admin.pages.tags.create');
     }
 
@@ -33,7 +35,7 @@ class TagController extends Controller
      */
     public function store(TagRequest $request)
     {
-        //
+        $this->authorize('create', Tag::class);
         try {
             DB::beginTransaction();
             $name = $request->name;
@@ -55,7 +57,7 @@ class TagController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $this->authorize('update', Tag::class);
     }
 
     /**
@@ -63,7 +65,7 @@ class TagController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $this->authorize('update', Tag::class);
     }
 
     /**
@@ -71,7 +73,7 @@ class TagController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->authorize('update', Tag::class);
     }
 
     /**
@@ -79,6 +81,9 @@ class TagController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->authorize('delete', Tag::class);
+        $tag = Tag::findOrFail($id);
+        $tag->delete();
+        return redirect()->route('tags.index')->with('success', "Xóa từ khóa thành công.");
     }
 }

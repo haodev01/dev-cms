@@ -3,13 +3,13 @@
 @section('content')
 <div>
   @if (session('success'))
-  <div class="alert alert-success">{{ session('success') }}</div>
+  <div class="alert alert-success" role="alert">{{ session('success') }}</div>
   @endif
   <div class="card">
     <div class=" card-header d-flex justify-content-between align-items-center">
-      <h1 class="">Danh sách từ khóa</h1>
+      <h1 class="">Danh sách người dùng</h1>
       <div>
-        <a href="{{ route('tags.create') }}" class="btn btn-primary ">Thêm</a>
+        <a href="{{ route('users.create') }}" class="btn btn-primary ">Thêm</a>
       </div>
     </div>
     <div class="table-responsive text-nowrap">
@@ -18,23 +18,25 @@
           <tr>
             <th>ID</th>
             <th>Tên</th>
-            <th>Người tạo</th>
-            <th>Ngày tạo</th>
+            <th>Email</th>
+            <th>Vai trò</th>
             <th>Hành động</th>
           </tr>
         </thead>
         <tbody class="table-border-bottom-0">
-          @foreach ($tags as $tag )
+          @foreach ($users as $user )
           <tr>
             <td>
-              <span class="fw-medium">{{ $tag->id }}</span>
+              <span class="fw-medium">{{ $user->id }}</span>
             </td>
-            <td>{{ $tag->name }}</td>
+            <td>{{ $user->name }}</td>
             <td>
-              <span class="fw-medium">{{$tag->createBy->name}}</span>
+              <span class="fw-medium">{{$user->email}}</span>
             </td>
             <td>
-              {{$tag->created_at->diffForHumans()}}
+              @foreach ($user->roles as $role )
+              <span>{{$role->name}}</span>
+              @endforeach
             </td>
             <td>
               <div class="dropdown">
@@ -42,8 +44,8 @@
                   <i class="bx bx-dots-vertical-rounded"></i>
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
-                  <form action="{{route('tags.destroy', $tag->id)}}" method="POST">
+                  <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Sưa</a>
+                  <form action="{{route('users.destroy', $user->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="dropdown-item">
@@ -57,6 +59,9 @@
           @endforeach
         </tbody>
       </table>
+      <div class="p-4">
+        {{$users->withQueryString()->links('pagination::bootstrap-5')}}
+      </div>
     </div>
   </div>
 

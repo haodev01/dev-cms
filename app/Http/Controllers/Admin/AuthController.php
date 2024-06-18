@@ -26,16 +26,17 @@ class AuthController extends Controller
     {
         $data = $request->all();
         $this->create($data);
-        return redirect()->route('admin.login')->with('success', 'User created successfully. Please login');
     }
     public function create(array $data)
     {
-        return Admin::create([
+        $user =  Admin::create([
             'username' => $data['username'],
-            'name' => 'haonc',
+            'name' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
+        $user->assignRole($data['roles']);
+        return $user;
     }
     public function doLogin(Request $request)
     {
