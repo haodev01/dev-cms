@@ -29,11 +29,11 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         $this->routes(function () {
-            Route::middleware('api')
+            Route::domain(env('DOMAIN_API', 'api.dev.com'))->middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            Route::domain(env('DOMAIN_CMS', 'cms.dev.com'))->middleware('web')
                 ->group(base_path('routes/admin/index.php'));
         });
     }

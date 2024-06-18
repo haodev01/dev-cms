@@ -7,9 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
-class Catgory extends Model
+class Category extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $table = 'categories';
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'parent_id',
+        'thumb',
+        'desc'
+    ];
     protected $hidden = [
         'deleted_at', 'created_by_id',
     ];

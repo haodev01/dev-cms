@@ -6,7 +6,7 @@ namespace App\Providers;
 
 use App\Models\Admin;
 use App\Models\Article;
-use App\Models\Catgory;
+use App\Models\Category;
 use App\Models\Tag;
 use App\Policies\ArticlePolicy;
 use App\Policies\CategoryPolicy;
@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         Tag::class => TagPolicy::class,
         Article::class => ArticlePolicy::class,
-        Catgory::class => CategoryPolicy::class,
+        Category::class => CategoryPolicy::class,
         Admin::class => UserPolicy::class,
         Permission::class => PermissionPolicy::class
     ];

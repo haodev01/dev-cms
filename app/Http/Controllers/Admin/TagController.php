@@ -66,6 +66,8 @@ class TagController extends Controller
     public function edit(string $id)
     {
         $this->authorize('update', Tag::class);
+        $tag = Tag::findOrFail($id);
+        return view('admin.pages.tags.edit', compact('tag'));
     }
 
     /**
@@ -74,6 +76,9 @@ class TagController extends Controller
     public function update(Request $request, string $id)
     {
         $this->authorize('update', Tag::class);
+        $tag = Tag::findOrFail($id);
+        $tag->update(['name' => $request->name]);
+        return redirect()->route('tags.index')->with('success', "Sửa từ khóa thanh cong");
     }
 
     /**

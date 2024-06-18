@@ -38,7 +38,6 @@
             @endforeach
           </div>
         </div>
-
         <button type="submit" class="btn btn-primary">Tạo</button>
       </form>
     </div>

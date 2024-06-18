@@ -42,7 +42,7 @@
                   <i class="bx bx-dots-vertical-rounded"></i>
                 </button>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
+                  <a class="dropdown-item" href="{{route('tags.edit', $tag->id)}}"><i class="bx bx-edit-alt me-1"></i> Sửa</a>
                   <form action="{{route('tags.destroy', $tag->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
