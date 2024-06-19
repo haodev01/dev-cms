@@ -47,8 +47,8 @@
 
   <ul class="menu-inner py-1">
     <!-- Dashboards -->
-    <li class="menu-item active open">
-      <a href="{{route('articles.index')}}" class="menu-link ">
+    <li class="menu-item {{ App\Helpers\NavigationHelper::setActive(['/', '/dashboard']) ? 'active' : '' }} open">
+      <a href="{{route('admin.dashboard')}}" class="menu-link ">
         <i class="menu-icon tf-icons bx bx-home-circle"></i>
         <div data-i18n="Dashboards">Dashboards</div>
       </a>
@@ -56,73 +56,47 @@
     </li>
 
     <!-- Pages -->
-    <li class="menu-item  ">
-      <a href="{{route('articles.index')}}" class="menu-link menu-toggle ">
+    <li class="menu-item {{ App\Helpers\NavigationHelper::setActive(['users*', 'permissions*', 'roles*'])  ? 'active open' : '' }} ">
+      <a href="{{route('articles.index')}}" class="menu-link menu-toggle  ">
         <i class="menu-icon tf-icons bx bx-dock-top"></i>
         <div data-i18n="Account Settings">Tài khoản</div>
       </a>
       <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="{{route('users.index')}}" class="menu-link">
+        <li class="menu-item {{App\Helpers\NavigationHelper::setActive(['users*']) ? 'active' : ''}} ">
+          <a href="{{route('users.index')}}" class="menu-link ">
             <div data-i18n="Account">Người dùng</div>
           </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{App\Helpers\NavigationHelper::setActive(['permissions*']) ? 'active' : ''}}">
           <a href="{{route('permissions.index')}}" class="menu-link">
             <div data-i18n="Notifications">Quản lý quyền</div>
           </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item {{App\Helpers\NavigationHelper::setActive(['roles*']) ? 'active' : ''}}">
           <a href="{{route('roles.index')}}" class="menu-link">
             <div data-i18n="Notifications">Quản lý vai trò</div>
           </a>
         </li>
       </ul>
     </li>
-    <li class="menu-item">
+    <li class="menu-item {{ App\Helpers\NavigationHelper::setActive(['articles*']) ? 'active' : '' }}">
       <a href="{{route('articles.index')}}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
         <div data-i18n="Authentications">Bài viết</div>
       </a>
     </li>
-    <li class="menu-item">
+    <li class="menu-item {{ App\Helpers\NavigationHelper::setActive(['tags*']) ? 'active' : '' }}">
       <a href="{{route('tags.index')}}" class="menu-link ">
         <i class="menu-icon tf-icons bx bx-cube-alt"></i>
         <div data-i18n="Misc">Từ khóa</div>
       </a>
     </li>
     <!-- User interface -->
-    <li class="menu-item">
+    <li class="menu-item {{ App\Helpers\NavigationHelper::setActive(['categories*']) ? 'active' : '' }}">
       <a href="{{route('categories.index')}}" class="menu-link ">
         <i class="menu-icon tf-icons bx bx-box"></i>
         <div data-i18n="User interface">Danh mục</div>
       </a>
     </li>
-
-    <!-- Extended components -->
-
-
-    <!-- Forms -->
-    <!-- <li class="menu-item">
-      <a href="{{route('articles.index')}}" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-detail"></i>
-        <div data-i18n="Form Elements">Form Elements</div>
-      </a>
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="forms-basic-inputs.html" class="menu-link">
-            <div data-i18n="Basic Inputs">Basic Inputs</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="forms-input-groups.html" class="menu-link">
-            <div data-i18n="Input groups">Input groups</div>
-          </a>
-        </li>
-      </ul>
-    </li> -->
-
-
-
   </ul>
 </aside>

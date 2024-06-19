@@ -28,4 +28,8 @@ class Tag extends Model
     {
         return $this->belongsTo(Admin::class, 'updated_by_id');
     }
+    public function articles()
+    {
+        return $this->belongsToMany(Article::class, 'article_tags', 'tag_id', 'article_id');
+    }
 }
