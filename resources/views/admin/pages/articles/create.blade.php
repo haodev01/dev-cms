@@ -86,9 +86,12 @@
     </div>
   </div>
 </div>
+@include('ckfinder::setup')
 <script>
   $(document).ready(function() {
-    CKEDITOR.replace('article_content', {});
+    CKEDITOR.replace('article_content', {
+      filebrowserBrowseUrl: '{{ route('ckfinder_browser')}}'
+    });
     $('.tags').select2({
       placeholder: 'Chọn từ khóa',
       theme: 'classic',
